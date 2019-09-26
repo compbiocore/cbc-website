@@ -1,0 +1,91 @@
+{{ define "content"}}
+<!-- header - yellow container -->
+{{ $current_section := .Section }}
+<div id="hero-list" class=" bg-yellow text pb-5">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 d-flex flex-column pt-6 pb-10">
+          <h1 class="fs-60"> {{ humanize .Section }} </h1>
+          <p class="fs-30">{{ .Params.hero.lead }}</p>
+          {{ with .Params.hero.cfa }}
+          <p class="nav-item  bg-green shadow w-25 text-center">
+            <a class="nav-link" href="{{$.Site.BaseURL}}{{.href}}">
+              <span class="fs-24 text-beige font-weight-bold">{{ .text }}</span>
+            </a>
+          </p>
+          {{ end }}
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- table of contents -->
+<div class="container-fluid overlay-top justify-content-center d-flex">
+  <div class="col-lg-6 col-md-10 col-sm-12">
+    <ul class="nav nav-toc-page flex-column boxed">
+      {{ range $key, $value := .Site.Taxonomies.category }}
+      {{ range first 1 $value.Pages }}
+      {{ if eq .Section $current_section }}
+        <li class="mx-1 nav-item bg-white my-1">
+            <a data-scroll class="nav-link section-nav-link" href="#{{$key}}">
+                <span class="text-dark icon-{{.Params.icon}} pr-1 fs-24"></span>
+                <span class="text-dark fs-20">{{ humanize $key }}</span>
+            </a>
+        </li>
+        {{ end }}
+        {{ end }}
+        {{ end }}
+    </ul>
+    </div>
+  </div>
+
+<!-- content -->
+<div class="container-fluid d-flex justify-content-center px-0">
+  <div class="col-lg-9 col-md-11 col-sm-12 py-10">
+
+      {{ range $key, $value := .Site.Taxonomies.category }}
+      {{ range first 1 $value.Pages }}
+      {{ if eq .Section $current_section }}
+        <header id="{{$key}}" class="d-flex align-items-center">
+          <span class="btn-blue btn-ico btn-lg btn-rounded"><i class="icon-{{ .Params.icon }} fs-40"></i></span>
+          <h1 class="mx-4 text-secondary">{{ humanize $key }}</h1>
+          <hr class="bg-dark w-40"/>
+        </header>
+        {{ if eq $key "file-storage-and-transfer"}}
+        <div class="d-flex px-2 py-6 justify-content-between flex-wrap">
+          <h3>{{ markdownify .Site.Data.file_storage.lead }}</h3>
+          <a class="btn btn-secondary mt-2 fs-26" href="{{.Site.BaseURL}}/{{.Site.Data.file_storage.path}}"><span class="fas fa-table"></span> See comparison table </a>
+        </div>
+        {{ end }}
+        <article class="d-flex py-6 justify-content-between flex-wrap">
+          {{ range where $.Site.Pages "Section" $current_section}}
+          {{ if eq (.Params.category | urlize) $key }}
+          {{ $weight := .Params.weight }}
+          <div class="col-md-6 py-3">
+            <div class="card p-4">
+              <div class="d-flex">
+              <h1>{{ .Title | markdownify }}</h1>
+              <span class="badge-red badge h-50 ml-1">{{ .Params.version }}</span>
+              </div>
+              {{ with .Params.extra }}
+              <a href="{{.link}}" class="mt-1 text-danger badge border border-danger bg-warning">{{.text}}</a>
+              {{ end }}
+              <hr class="bg-primary">
+              <p class="fs-20">{{ .Params.lead | markdownify }}</p>
+              <span>
+                <a href="{{.Permalink}}" class="mt-1 text-blue"><u>Details</u></a>
+                {{ if .Params.docs_link }}
+                <a href="https://docs.ccv.brown.edu/{{.Params.docs_link}}" class="mt-1 text-orange">&nbsp;&nbsp;<u>Documentation</u>&nbsp;&nbsp;</a>
+                {{ end }}
+              </span>
+            </div>
+          </div>
+          {{ end }}
+          {{ end }}
+      </article>
+      {{ end }}
+      {{ end }}
+      {{ end }}
+</div>
+
+{{ end }}

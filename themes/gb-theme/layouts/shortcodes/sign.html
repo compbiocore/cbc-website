@@ -1,0 +1,19 @@
+{{ $name := .Get 0}}
+{{ range .Site.Data.people }}
+{{ if eq .name $name }}
+<div class="position-relative mt-10 ml-2 mb-6" >
+<div class="boxed py-2 pr-2 pl-5">
+  <h5>{{ .name }}</h5>
+  <p class="fs-16">{{ .bio }}</p>
+  <div class="d-flex justify-content-start">
+    <a href="https://directory.brown.edu/uuid/{{ .brown_directory_uuid }}"><span class="mr-2 fas fa-info-circle fs-20"></span></a>
+    <a href="https://github.com/{{ .github_username }}"><span class="mr-2 fab fa-github fs-20"></span></a>
+  </div>
+</div>
+{{ $img := printf "images/people/JPEG/%s" .image }}
+<div class="avatar avatar-lg position-absolute left--5 top--14" style="background-image: url({{$.Site.BaseURL}}/{{$img}});">
+</div>
+
+</div>
+{{ end }}
+{{ end }}

@@ -1,0 +1,120 @@
+
+// hero
+#hero {
+  position: relative;
+  .hero-content-container {
+    position: relative;
+    overflow: hidden;
+    background-position: 20% 65%;
+    background-size: cover;
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      padding-right: 33%;
+      padding-top: 15% !important;
+      padding-bottom: 15% !important;
+      padding-left: 10rem;
+    }
+    .text-medium-brown {
+      font-size: $font-size-lg * 1.2;
+    }
+    &::after {
+      position: absolute;
+      z-index: 0;
+      content: "";
+      width: 200%;
+      top: 100%;
+      bottom: -200%;
+      left: 60%;
+      background-color: $gray-100;
+      transform-origin: top left;
+      transform: rotate(-28deg);
+    }
+  }
+  .z-10 {
+    z-index: 100;
+  }
+  svg {
+    padding: 1rem;
+  }
+  h1 {
+    font-weight: 600;
+    font-size: $h1-font-size * 1.2;
+    opacity: 0.8;
+  }
+  hr {
+    opacity: 0.5;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .hero-content {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .small-invisible {
+    display: none;
+  }
+}
+
+.right-1 {
+  right: 1% !important;
+}
+.bottom-6 {
+  bottom: -6% !important;
+}
+.left-5 {
+  left: 5% !important;
+}
+.bottom-10 {
+  bottom: 10% !important;
+}
+.iso-ccv {
+  height: 28rem;
+  stroke: white;
+  stroke-width: 2px;
+  .ccv-st0, .ccv-st2, .ccv-st5 {
+    fill: $brown-100;
+    fill-opacity: 0.9;
+  }
+  .ccv-st1, .ccv-st3, .ccv-st4 {
+    fill: $beige;
+    fill-opacity: 0.9;
+  }
+  .ccv-st6, .ccv-st7, .ccv-st8 {
+    fill: $sand;
+    fill-opacity: 0.9;
+  }
+}
+@include media-breakpoint-down(md) {
+  .iso-ccv {
+    height: 20rem;
+  }
+  .right-1 {
+    right: 1% !important;
+  }
+  .bottom-6 {
+    bottom: -6% !important;
+  }
+	.zdog-svg {
+		width: 60% !important;
+		height: 60% !important;
+		margin-left: 20% !important;
+	}
+}
+@include media-breakpoint-down(sm) {
+  .iso-ccv {
+    height: 12rem;
+  }
+  .bottom-6 {
+    bottom: -20% !important;
+  }
+  .text-medium-brown {
+    font-size: $font-size-lg !important;
+  }
+}
+
+.zdog-svg {
+	width: 100%;
+	height: 100%;
+}

@@ -1,0 +1,89 @@
+<body lang="en" id="top"  data-spy="scroll" data-offset="0"  data-target="#TableOfContents">
+
+<section class="py-0">
+  <div class="container-fluid">
+    <aside class="row">
+      <nav>
+          <button class="btn p-0 menu-trigger"><span class="fas fa-bars fa-2x"></span></button>
+      </nav>
+    </aside>
+    <div class="row justify-content-between mt-0">
+
+      <!-- navigation -->
+      <aside class="col-lg-3 col-xxl-2 px-3 doc-sidebar bg-white">
+        <div class="sticky">
+          <nav class="navbar navbar-vertical navbar-expand-lg navbar-light">
+            <div class="d-flex row justify-content-center">
+              <!-- <a href="../../index.html" class="navbar-brand"><span class="badge badge-red ml-3">Resources</span></a> -->
+              <h1>{{ .Params.type }}</h1>
+              <span class="ml-1 badge badge-red h-50">{{ .Params.version }}</span>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon fas fa-angle-down" style="background-image:none !important;"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul id="page-nav" class="nav flex-column nav-vertical-2">
+                {{ $main_title := .Params.title }}
+                {{ range $index, $page := (where $.Site.Pages "Type" .Params.type) }}
+                {{ if ne .Params.weight 0}}
+                <li class="nav-item{{ if (eq $index 1) }} active{{ end }}">
+                  <a class="nav-link doc-nav-link" data-toggle="collapse" href="#menu-{{$index}}" role="button" aria-expanded="nav-item{{ if (eq $index 1) }}true{{ end }}" aria-controls="menu-{{$index}}">{{ $page.Title }}</a>
+                  <div class="collapse{{ if (eq $page.Title $main_title) }} show{{ end }}" id="menu-{{$index}}" data-parent="#page-nav">
+                    <ul class="nav flex-column">
+                      {{ if $page.Params.subitems }}
+                        {{ range $sub_index, $sub_item := $page.Params.subitems }}
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{ $page.Permalink }}{{ .ref }}">{{ .subsection }}</a>
+                          </li>
+                        {{ end }}
+                      {{ end }}
+                    </ul>
+                  </div>
+                </li>
+                {{ end }}
+                {{ end }}
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </aside>
+      <!-- / navigation -->
+
+      <!-- content -->
+      <article class="col-lg-9 doc-content">
+
+        <div class="row justify-content-between doc-content-body">
+          <article class="col-md-9">
+            <div>
+              <h1><strong>{{ .Title }}</strong></h1>
+                {{ .Content | markdownify }}
+              </div>
+            <div class="row">
+            <div class="col-md-12">
+              <ul class="list-group list-group-lines">
+                {{ range .Pages }}
+                <a href="{{ .Permalink }}">
+                <li class="list-group-item d-flex align-items-center boxed">
+                  <i class="icon-file-text2 mr-2 text-primary fs-24"></i>
+                  {{ .Title }}
+                </li>
+                </a>
+                {{ end }}
+              </ul>
+            </div>
+          </div>
+          </article>
+          <aside class="col-md-3 col-xxl-3 d-none d-md-block">
+            <div class="sticky">
+              {{ .TableOfContents }}
+            </div>
+          </aside>
+          <aside id="menu" class="col-lg-3 col-xxl-2 p-3 bg-white">
+          {{ partial "blocks/menu" . }}
+          </aside>
+        </div>
+      </article>
+      <!-- / content -->
+    </div>
+  </div>
+</section>

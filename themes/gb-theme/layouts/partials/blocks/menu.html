@@ -1,0 +1,46 @@
+
+<!-- sidebar start -->
+<nav id="menu-container">
+    <div class="row">
+        <button class="btn menu-trigger">
+            <span id="menu-close" class="fas fa-times fa-2x"></span>
+        </button>
+    </div>
+
+    <div class="row ">
+        <ul class="nav flex-column">
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main.ByWeight }}
+                {{ if .HasChildren }}
+                    <li class="nav-item {{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
+                        <a class="nav-link" href="#">
+                            {{ .Pre }}
+                            <span>{{ .Title }}</span>
+                        </a>
+                    </li>
+                    <ul class="sub-menu">
+                        {{ range .Children }}
+                            <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                                <a class="nav-link" href="{{ .URL }}">
+                                {{ .Title }}
+                                </a>
+                            </li>
+                        {{ end }}
+                    </ul>
+                {{ else }}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ .URL }}">
+                            {{ .Pre }}
+                            <span class="text-dark fs-24 link ">{{ i18n .Title }}</span>
+                        </a>
+                    </li>
+                {{ end }}
+            {{ end }}
+        </ul>
+    </div>
+    <div class="row logos">
+    {{ readFile "/themes/gb-theme/static/images/brown-logo.svg" | safeHTML }}
+    {{ readFile "/themes/gb-theme/static/images/ccv-logo.svg" | safeHTML }}
+    </div>
+
+</nav>

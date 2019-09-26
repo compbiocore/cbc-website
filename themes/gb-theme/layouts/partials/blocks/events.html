@@ -1,0 +1,73 @@
+<section id="section-3" class="bg-white showcase">
+  <section>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+
+        <header class="d-flex align-items-center">
+          <span class="btn bg-yellow btn-ico btn-lg btn-rounded mx-3">
+            <i class="text-light fas fa-calendar"></i>
+          </span>
+          <h1 class="py-8 h1-home">Upcoming Events</h1>
+        </header>
+        <section>
+
+        </section>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <section class="bg-white row">
+  <div class="owl-carousel
+              owl-carousel-showcase
+              owl-carousel-fluid
+              owl-loaded owl-drag
+              skrollable
+              skrollable-before"
+        data-items="[3,3,2]"
+        data-center="false"
+        data-nav="false"
+        data-margin="40"
+        data-loop="true"
+        data-dots="true"
+        >
+
+
+        {{ $events := getJSON "https://datasci.brown.edu/gcal-api/" }}
+        {{ range (sort $events.events ".start.dateTime" "asc") }}
+        {{ if ne .visibility "private" }}
+        {{ if ne .id "4ms1nkdapkkr7h2osu6mkb3ih6_R20190508T173000"}}
+        <div class="py-2">
+          <div class="type boxed mr-2 bg-light text-dark">
+            <div  class="d-flex flex-column">
+              <a  target="_blank" href="{{.htmlLink}}">
+                <span class="badge badge-outline badge-outline-primary scale"><span class="fas fa-calendar-alt fa-3x"></span></span>
+              </a>
+              <a class="page-box" data-target="{{sha1 .title }}" href="{{.htmlLink}}">
+                {{ $min := (time .start.dateTime).Minute }}
+                <p class="h5">{{ dateFormat "Monday" .start.dateTime  }}</p>
+                <p class="h6">{{ dateFormat "Jan 2, 2006" .start.dateTime }}</p>
+                <p class="h1 fs-16">{{ dateFormat "3:04PM" .start.dateTime }}-{{ dateFormat "3:04PM" .end.dateTime }}</p>
+                {{ with .location }}
+                <p class="fs-14"><span class="fas fa-map-marker-alt"></span>&nbsp;{{ . }}</p>
+                {{ end }}
+                {{ with .description }}
+                <p class="fs-14"><span class="fs-14 fas fa-chalkboard-teacher"></span>&nbsp;{{ markdownify . }}</p>
+                {{ end }}
+                <div class="type-example">
+                  <h3>{{ .summary }}</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+      </div>
+      {{ end }}
+      {{ end }}
+      {{ end }}
+
+  </div>
+  </section>
+</div>
+</section>
