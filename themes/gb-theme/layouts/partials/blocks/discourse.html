@@ -5,22 +5,4 @@
    </nav>
 </aside>
 
-<nav id="discourse-box">
-    <div class="row">
-      <div class="d-flex flex-column text-center boxed p-2 alert-warning">
-         <button type="button" class="close align-self-end p-0" data-dismiss="alert" aria-label="Close">
-            <span class="fs-18 text-dark fas fa-times"></span>
-         </button>
-         {{ range .Site.Params.contact }}
-         <a class="mt-1" href="{{.link}}">
-            <span class="{{.fa}} fa-2x"></span>
-            <p class="fs-14">{{.text}}</p>
-         </a>
-         {{ end }}
-      </div>
-    </div>
-
-</nav>
-
-
 </div>
