@@ -1,0 +1,101 @@
+---
+- name: David Rand, PhD
+  weight: 1
+  affiliation: Department of Ecology and Evolutionary Biology
+  title: Co-director
+  github_username: 
+  brown_directory_uuid: be5679fd-b35d-cf52-4368-f37ff238c244
+  bio: 
+  image: david_main.jpg
+- name: Zhijin Wu, PhD
+  weight: 2
+  affiliation: Department of Biostatistics
+  title: Co-director
+  github_username: 
+  brown_directory_uuid: 65c605ad-8c95-58d2-8476-1720ba408afb
+  bio: 
+  image: zhijin_main.jpg
+- name: Paul Stey, PhD
+  weight: 3
+  affiliation: Center for Computation & Visualization
+  type: Full Time
+  team: Leadership
+  title: Advisor, Director of Data Science and Scientific Computing
+  github_username: paulstey
+  brown_directory_uuid: 0525f19f-d156-4c47-a2e1-8b4e904a2e84
+  bio: Paul is a data scientist interested in using data and machine learning to solve
+    challenging problems. Before coming to Brown he was a statistician at the EPA.
+    He has a PhD in Developmental Psychology.
+  image: stey_main.jpg
+- name: Ashok Ragavendran, PhD
+  weight: 4
+  affiliation: Center for Computation & Visualization
+  type: Full Time
+  team: Advanced Research Computing
+  subteam: Computational Biology Core
+  title: Lead Data Scientist, CBC Manager
+  github_username: ashokrags
+  brown_directory_uuid: 60802d0b-8f18-499a-a1f3-5f9b24c390e4
+  bio: Ashok is a computational biologist/data scientist with a varied background
+    in genetics, genomics, statistics and computation. He has a PhD in Fisheries and
+    Wildlife from MSU and has worked in areas of quantitave genetics, biomedical genetics,
+    ecology and bioinformatics. Above all he has a keen interest in data analysis,
+    computing and providing user friendly solutions for analysis and visualization
+    of large data sets. Otherwise he keeps busy with two boys, two pups and life near
+    the beach.
+  image: ashok_main.jpg
+- name: August Guang, PhD
+  weight: 5
+  affiliation: Center for Computation & Visualization
+  type: Full Time
+  team: Advanced Research Computing
+  subteam: Computational Biology Core
+  title: Genomics Data Scientist
+  github_username: aguang
+  brown_directory_uuid: b3f2991e-b618-190f-881f-25fc21f82d02
+  bio: August obtained their PhD from Brown in 2017 in Applied Mathematics and Computational
+    Biology. Outside of work they organize against criminalization and the police
+    state. Both their research practices and organizing work are guided by the belief
+    that crisis and uncertainty are a gift and that we must be involved in shaping
+    how change happens.
+  image: august_main.jpg
+- name: Andrew Leith, PhD
+  weight: 6
+  affiliation: Center for Computation & Visualization
+  type: Full Time
+  team: Advanced Research Computing
+  subteam: Computational Biology Core
+  title: Genomics Data Scientist
+  github_username: andrew-leith
+  brown_directory_uuid: d0bcfa61-086d-fac1-0cad-dd7f7fd58a5e
+  bio: Andrew is a data scientist with a degree in Biostatistics from the Brown School
+    of Public Health; his professional interests include cloud computing and infrastructure,
+    methods for reproducible research in genomics, and the biology of human longevity.
+  image: andrew_main.jpg
+- name: Fernando Gelin, PhD
+  weight: 7
+  affiliation: Center for Computation & Visualization
+  type: Full Time
+  team: Advanced Research Computing
+  subteam: Data & Visualization
+  title: Research Software Engineer
+  github_username: fernandogelin
+  brown_directory_uuid: 8144f0fb-0d36-47ed-ae64-ab07c232ebba
+  bio: Fernando grew up in Brazil, received his PhD in Biology from the University
+    of Vermont in 2014. He is the mastermind behind the CCV and CBC websites.
+    His professional interests include Julia, JavaScript, web app development; his
+    personal interests include feeding his dogs ice cream and spending time outside.
+  image: fernando_main.jpg
+- name: Joselynn Wallace, PhD
+  weight: 8
+  affiliation: Center for Computation & Visualization
+  type: Full Time
+  team: Advanced Research Computing
+  title: Genomics Data Scientist
+  subteam: Computational Biology Core
+  github_username: jrwallace
+  brown_directory_uuid: 1eb864be-02d2-4880-a43f-62076e2d7366
+  bio: Joselynn is a genomics data scientist. Before coming to Brown, she got her
+    PhD from the University of Rhode Island. Her background is primarily in studying
+    microbes.
+  image: joselynn_main.jpg
