@@ -2,15 +2,14 @@
   translation: Home
 - id: About
   translation: About
+- id: Support
+  translation: Support
 - id: Services
   translation: Services
-- id: News
-  translation: News
-- id: Documentation
-  translation: Documentation
-
-- id: learn_about_ccv_services
-  translation: Learn About CCV Services
+- id: Resources
+  translation: Resources
+- id: Blog
+  translation: Blog
 
 - id: monday
   translation:
