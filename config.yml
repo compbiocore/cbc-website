@@ -49,7 +49,7 @@ menu:
   - identifier: blog
     name: Blog
     title: Blog
-    url: /blog/
+    url: https://medium.com/brown-compbiocore
     weight: 6
 
 # i18n
