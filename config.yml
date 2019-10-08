@@ -67,3 +67,8 @@ languages:
     weight: 3
     contentDir: content/chinese
 
+# Taxonomies
+taxonomies:
+  tag: "tags"
+  type: "types"
+  category: "category"
