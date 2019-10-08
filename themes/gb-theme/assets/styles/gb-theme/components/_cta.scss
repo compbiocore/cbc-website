@@ -1,0 +1,47 @@
+// .cta{
+// 	background: linear-gradient(to right, $primary, $secondary);
+// 	color: #fff;
+// 	padding: 48pt 0;
+// }
+//
+// .cta--reverse{
+// 	background: linear-gradient(to left, $primary, $secondary);
+// }
+
+.cta--plain{
+	background: $primary;
+}
+
+.cta--secondary{
+	background: $secondary;
+}
+
+.cta__title{
+	color: inherit;
+	font-weight: 900;
+	align-self: center;
+}
+
+.cta__inner {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.cta__text__container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.cta__text {
+	font-family: $font-p !important;
+	p {
+		color: white !important;
+	}
+	&_q {
+		font-weight: 900;
+		margin-bottom: 0.5rem;
+	}
+
+}
