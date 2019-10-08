@@ -18,7 +18,7 @@
       <ul class="nav nav-toc-page flex-column boxed">
         {{ range $key, $button := .Params.front.button }}
           <li class="mx-1 nav-item bg-white my-1">
-              <a data-scroll class="nav-link section-nav-link" href="#{{$button.href}}">
+              <a data-scroll class="nav-link section-nav-link" href="{{$button.href}}">
                   <span class="text-dark icon-{{.Params.icon}} pr-1 fs-24"></span>
                   <span class="text-dark fs-20">{{ $button.title }}</span>
               </a>
@@ -27,7 +27,26 @@
       </ul>
       </div>
     </div>
+
+
+<!-- content -->
+<div class="container-fluid d-flex justify-content-center px-0">
+    <div class="col-lg-9 col-md-11 col-sm-12 py-10">
   
+        {{ if .Params.faq }}
+          <header id="{{ .Params.faq.id }}" class="d-flex align-items-center">
+            <span class="btn-blue btn-ico btn-lg btn-rounded"><i class="icon-{{ .Params.icon }} fs-40"></i></span>
+            <h1 class="mx-4 text-secondary">{{ .Params.faq.title  }}</h1>
+            <hr class="bg-dark w-40"/>
+          </header>
+          <div class="cta__text__container">
+			{{ range .Params.faq.text }}
+			<b><p class="cta__text_q">{{ .q | markdownify }}</p></b>
+			<p class="cta__text_a">{{ .a | markdownify }}</p>
+			{{ end }}
+		  </div>
+        {{ end }}
+  </div>
 </div>
 
 {{ end }}
