@@ -1,0 +1,112 @@
+{{ define "content"}}
+<!-- header - blue container -->
+{{ $current_section := .Section }}
+<div id="hero-list" class=" bg-blue text pb-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 d-flex flex-column pt-6 pb-10">
+			  <h1 class="fs-60 text-white"> {{ .Params.front.title | markdownify }} </h1>
+			  <p class="fs-30 text-white">{{ .Params.front.description }}</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- table of contents -->
+<div class="container-fluid overlay-top justify-content-center d-flex">
+		<div class="col-lg-6 col-md-10 col-sm-12">
+		  <ul class="nav nav-toc-page flex-column boxed">
+			{{ range $key, $button := .Params.front.button }}
+			  <li class="mx-1 nav-item bg-white my-1">
+				  <a data-scroll class="nav-link section-nav-link" href="{{$button.href}}">
+					  <span class="text-dark icon-{{$button.icon}} pr-1 fs-24"></span>
+					  <span class="text-dark fs-20">{{ $button.title }}</span>
+				  </a>
+			  </li>
+			  {{ end }}
+		  </ul>
+		  </div>
+		</div>
+
+<div class="container-fluid d-flex justify-content-center px-0">
+  <div class="col-lg-9 col-md-11 col-sm-12 py-10">
+		{{ if .Params.data }}
+          <header id="{{ .Params.data.id }}" class="d-flex align-items-center">
+            <span class="btn-red btn-ico btn-lg btn-rounded"><i class="	fas fa-database"></i></span>
+            <h1 class="mx-4 text-secondary">{{ .Params.data.title  }}</h1>
+            <hr class="bg-dark w-40"/>
+		  </header>
+		  <article class="d-flex py-6 justify-content-between flex-wrap">
+            <div class="col-md-12 py-3">
+              <div>
+                <p class="p-medium">{{ .Params.data.description | markdownify }}</p>
+              </div>
+            </div>
+          {{ range $box := .Params.data.box}}
+          <div class="col-md-6 py-3">
+            <div class="card p-4">
+              <div class="d-flex">
+              <h1>{{ $box.title | markdownify }}</h1>
+              </div>
+              <hr class="bg-primary">
+              <p class="fs-20">{{ $box.text  | markdownify }}</p>
+            </div>
+          </div>
+		  {{ end }}
+      </article>
+	  <article class="justify-content-between">
+	  <span>
+		<a href="{{.Params.data.button.href}}" class="mt-1 text-blue"><u>{{.Params.data.button.text}}</u></a>
+	  </span>
+	  </article>
+	  {{end}}
+  </div>
+</div>
+
+<!-- Consulting -->
+
+<!-- Expanded sections -->
+{{ range .Params.consulting.section }}
+<div id="{{ .id }}"class="expanded landing__section">
+	<div class="container">
+		<div class="expanded__inner">
+			<div class="expanded__media">
+				<iframe class="iframe-calendar" src="https://calendar.google.com/calendar/embed?src=brown.edu_oe4t4gp3e9vvu8crij3d6pblq4%40group.calendar.google.com&amp;ctz=America/New_York" style="border: 0" frameborder="0" scrolling="no"></iframe>
+				<!-- <img src="{{.src}}" alt="{{.alt}}" class="expanded__image" /> -->
+			</div>
+			<div class="expanded__content">
+				<h2 class="expanded__title">{{ .title | markdownify }}</h2>
+				<p class="expanded__text">{{ .text | markdownify }}</p>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<p class="services-text2">{{ .text2 | markdownify}}</p>
+	</div>
+
+	<div class="container-services">
+		{{ range .button }}
+
+		<a href="{{ .href }}" class="button button__accent">{{ .title | markdownify}}</a>
+
+		{{ end }}
+	</div>
+
+</div>
+{{ end }}
+
+<!-- DevOps -->
+<div id="{{ .Params.devops.id }}" class="expanded landing__section">
+	<div class="container">
+		<div class="expanded__inner">
+			<div class="expanded__media"><img src="{{ .Params.devops.src}}" alt="{{ .Params.devops.alt}}" class="expanded__image" /></div>
+			<div class="expanded__content">
+				<h2 class="expanded__title">{{ .Params.devops.title | markdownify }}</h2>
+				<p class="expanded__text">{{ .Params.devops.text | markdownify }}</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{{ end }}
