@@ -28,11 +28,13 @@
 		  </div>
 		</div>
 
+<!-- Data Analysis -->
+
 <div class="container-fluid d-flex justify-content-center px-0">
   <div class="col-lg-9 col-md-11 col-sm-12 py-10">
 		{{ if .Params.data }}
           <header id="{{ .Params.data.id }}" class="d-flex align-items-center">
-            <span class="btn-red btn-ico btn-lg btn-rounded"><i class="	fas fa-database"></i></span>
+            <span class="btn-red btn-ico btn-lg btn-rounded"><i class="fas fa-{{.Params.data.icon}}"></i></span>
             <h1 class="mx-4 text-secondary">{{ .Params.data.title  }}</h1>
             <hr class="bg-dark w-40"/>
 		  </header>
@@ -54,9 +56,9 @@
           </div>
 		  {{ end }}
       </article>
-	  <article class="justify-content-between">
+	  <article class="justify-content-center d-flex">
 	  <span>
-		<a href="{{.Params.data.button.href}}" class="mt-1 text-blue"><u>{{.Params.data.button.text}}</u></a>
+		<a href="{{.Params.data.button.href}}" class="p-medium text-blue">{{.Params.data.button.text| markdownify}}</a>
 	  </span>
 	  </article>
 	  {{end}}
@@ -65,48 +67,56 @@
 
 <!-- Consulting -->
 
-<!-- Expanded sections -->
-{{ range .Params.consulting.section }}
-<div id="{{ .id }}"class="expanded landing__section">
-	<div class="container">
-		<div class="expanded__inner">
-			<div class="expanded__media">
-				<iframe class="iframe-calendar" src="https://calendar.google.com/calendar/embed?src=brown.edu_oe4t4gp3e9vvu8crij3d6pblq4%40group.calendar.google.com&amp;ctz=America/New_York" style="border: 0" frameborder="0" scrolling="no"></iframe>
-				<!-- <img src="{{.src}}" alt="{{.alt}}" class="expanded__image" /> -->
-			</div>
-			<div class="expanded__content">
-				<h2 class="expanded__title">{{ .title | markdownify }}</h2>
-				<p class="expanded__text">{{ .text | markdownify }}</p>
-			</div>
-		</div>
+<div class="container-fluid d-flex justify-content-center px-0">
+	<div class="col-lg-9 col-md-11 col-sm-12 py-10">
+		  {{ if .Params.consulting }}
+			<header id="{{ .Params.consulting.id }}" class="d-flex align-items-center">
+				<span class="btn-red btn-ico btn-lg btn-rounded"><i class="icon-{{.Params.consulting.icon}}"></i></span>
+			  <h1 class="mx-4 text-secondary">{{ .Params.consulting.title  }}</h1>
+			  <hr class="bg-dark w-40"/>
+			</header>
+			<article class="d-flex py-6 justify-content-between flex-wrap">
+			  <div class="col-md-12 py-3">
+				<div>
+				  <p class="p-medium">{{ .Params.consulting.text | markdownify }}</p>
+				</div>
+				<br>
+				<div class="d-flex justify-content-center">
+				  <iframe class="iframe-calendar" src="https://calendar.google.com/calendar/embed?src=brown.edu_oe4t4gp3e9vvu8crij3d6pblq4%40group.calendar.google.com&amp;ctz=America/New_York" style="border: 0" frameborder="0" scrolling="no" height="400" width="600"></iframe>
+				</div>
+				<br>
+				<div>
+				  <p class="p-medium">{{ .Params.consulting.text2 | markdownify}}</p>
+				</div>
+			  </div>
+		</article>
+		{{end}}
+		<article class="justify-content-center d-flex">
+			<span>
+			  <a href="{{ .Params.consulting.button.href }}" class="p-medium text-blue">{{.Params.consulting.button.title | markdownify}}</a>
+			</span>
+		</article>
 	</div>
-	<div class="container">
-		<p class="services-text2">{{ .text2 | markdownify}}</p>
-	</div>
-
-	<div class="container-services">
-		{{ range .button }}
-
-		<a href="{{ .href }}" class="button button__accent">{{ .title | markdownify}}</a>
-
-		{{ end }}
-	</div>
-
-</div>
-{{ end }}
-
+  </div>
+  
 <!-- DevOps -->
-<div id="{{ .Params.devops.id }}" class="expanded landing__section">
-	<div class="container">
-		<div class="expanded__inner">
-			<div class="expanded__media"><img src="{{ .Params.devops.src}}" alt="{{ .Params.devops.alt}}" class="expanded__image" /></div>
-			<div class="expanded__content">
-				<h2 class="expanded__title">{{ .Params.devops.title | markdownify }}</h2>
-				<p class="expanded__text">{{ .Params.devops.text | markdownify }}</p>
-			</div>
-		</div>
+<div class="container-fluid d-flex justify-content-center px-0">
+	<div class="col-lg-9 col-md-11 col-sm-12 py-10">
+		  {{ if .Params.devops }}
+			<header id="{{ .Params.devops.id }}" class="d-flex align-items-center">
+			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="fas fa-{{.Params.devops.icon}}"></i></span>
+			  <h1 class="mx-4 text-secondary">{{ .Params.devops.title  }}</h1>
+			  <hr class="bg-dark w-40"/>
+			</header>
+			<article class="d-flex py-6 justify-content-between flex-wrap">
+			  <div class="col-md-12 py-3">
+				<div>
+				  <p class="p-medium">{{ .Params.devops.text | markdownify }}</p>
+				</div>
+			  </div>
+		</article>
+		{{end}}
 	</div>
-</div>
-
-
+  </div>
+  
 {{ end }}
