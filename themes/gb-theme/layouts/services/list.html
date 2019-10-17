@@ -56,11 +56,9 @@
           </div>
 		  {{ end }}
       </article>
-	  <article class="justify-content-center d-flex">
-	  <span>
-		<a href="{{.Params.data.button.href}}" class="p-medium text-blue">{{.Params.data.button.text| markdownify}}</a>
-	  </span>
-	  </article>
+	  <div class="d-flex justify-content-center m-1">
+		<a class="btn btn-primary btn-sm p-1" href="{{.Params.data.button.href}}">{{.Params.data.button.text| markdownify}}</a>
+	  </div>
 	  {{end}}
   </div>
 </div>
@@ -81,10 +79,6 @@
 				  <p class="p-medium">{{ .Params.consulting.text | markdownify }}</p>
 				</div>
 				<br>
-				<div class="d-flex justify-content-center">
-				  <iframe class="iframe-calendar" src="https://calendar.google.com/calendar/embed?src=brown.edu_oe4t4gp3e9vvu8crij3d6pblq4%40group.calendar.google.com&amp;ctz=America/New_York" style="border: 0" frameborder="0" scrolling="no" height="400" width="600"></iframe>
-				</div>
-				<br>
 				<div>
 				  <p class="p-medium">{{ .Params.consulting.text2 | markdownify}}</p>
 				</div>
@@ -92,9 +86,7 @@
 		</article>
 		{{end}}
 		<article class="justify-content-center d-flex">
-			<span>
-			  <a href="{{ .Params.consulting.button.href }}" class="p-medium text-blue">{{.Params.consulting.button.title | markdownify}}</a>
-			</span>
+				<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeEYb83-J6tuevzmNPxMFW6Jy_p3fn4PLigEzBIGRTbRUH-pw/viewform" width="640" height="1006" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 		</article>
 	</div>
   </div>
