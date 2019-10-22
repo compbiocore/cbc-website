@@ -10,14 +10,18 @@ front:
   button:
     - title: Outreach
       href: "#outreach"
+      icon: fas fa-volume-up
     - title: CBC Tools
       href: "#cbc-projects"
+      icon: fas fa-tools
     - title: Ingenuity Pathway Analysis
       href: "#ipa"
+      icon: fas fa-project-diagram
 
 
 triple:
-  title: "# Outreach"
+  title: "Outreach"
+  icon: volume-up
   text: CBC hosts workshops, publishes tutorials on computing tools used by bioinformaticians, and provides analysis support to the Brown community. To learn more about what we offer, click on the links below or contact us at cbc-help@brown.edu.
   id: outreach
   box:
@@ -35,8 +39,9 @@ triple:
       href: "https://cbc.brown.edu/services/"
 
 section:
-  - title: "# Computational Biology Core Tools"
+  - title: "Computational Biology Core Tools"
     id: cbc-projects
+    icon: tools
     text: "CBC provides various open source software, workshops, and tutorials. Complete projects can be found on the [Projects Index Site](https://compbiocore.github.io). Projects in development can be found on our [GitHub account](https://www.github.com/compbiocore)."
     src: ../images/undraw_browser.svg
     button:
@@ -51,7 +56,7 @@ section:
     id: refchef
     text: "List of Genome References available on URSA Stronghold and CCV's Oscar."
     src: "../images/refchef-view.png"
-  - title: "# Ingenuity Pathway Analysis"
+  - title: "Ingenuity Pathway Analysis"
     id: ipa
     text: "<p>IPA is a software application that enables biologists and bioinformaticians to identify the biological mechanisms, pathways, and functions most relevant to their experimental datasets or genes of interest. It allows researchers to graphically view, analyze, and query data in a comprehensive and seamless manner to understand molecular interactions, biological functions and disease on multiple levels. For more details go to qiagen IPA website and also access their webinars. Access to IPA free for the entire Brown community through September 2019.</p>
     <p><strong>Only one concurrent users will be allowed at a time, so use the scheduler below to reserve analysis time.</strong></p>
