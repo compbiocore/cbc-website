@@ -27,15 +27,15 @@ triple:
   box:
     - title: Workshops
       text:
-      src: ../images/undraw_designer.svg
+      src: ../resources/images/undraw_designer.svg
       href: "https://compbiocore.github.io/#workshops"
     - title: Tutorials
       text:
       href: "https://compbiocore.github.io/#tutorials"
-      src: ../images/undraw_elements.svg
+      src: ../resources/images/undraw_elements.svg
     - title: Analysis Support
       text:
-      src: ../images/undraw_hello_aeia.svg
+      src: ../resources/images/undraw_hello_aeia.svg
       href: "https://cbc.brown.edu/services/"
 
 section:
