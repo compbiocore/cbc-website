@@ -62,6 +62,26 @@
 </div>
 </div>
 
+<!-- Sections -->
 
+{{ range .Params.section}}
+<div class="container-fluid d-flex justify-content-center px-0">
+	<div class="col-lg-9 col-md-11 col-sm-12 py-10">
+		  <header id="{{ .id }}" class="d-flex align-items-center">
+			<span class="btn-red btn-ico btn-lg btn-rounded"><i class="fas fa-{{ .icon}}"></i></span>
+			<h1 class="mx-4 text-secondary">{{ .title  }}</h1>
+			<hr class="bg-dark w-40"/>
+		  </header>
+		  <article class="d-flex py-6 justify-content-between flex-wrap">
+			<div class="col-md-12 py-3">
+			  <div>
+				<p class="p-medium">{{ .text | markdownify }}</p>
+			  </div>
+			</div>
+	  </article>
+	</div>
+	</div>
+{{ end }}
+	
 
 {{ end }}
