@@ -79,6 +79,11 @@
 			  </div>
 			</div>
 	  </article>
+	  <div class="d-flex justify-content-center m-1">
+	  {{ range .button}}
+		<a class="btn btn-primary btn-sm p-1" href="{{ .href}}">{{ .title | markdownify}}</a>&nbsp; &nbsp;
+	  {{end}}
+	</div>
 	</div>
 	</div>
 {{ end }}
