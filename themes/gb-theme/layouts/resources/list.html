@@ -1,0 +1,92 @@
+{{ define "content"}}
+<!-- header - blue container -->
+{{ $current_section := .Section }}
+<div id="hero-list" class=" bg-blue text pb-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 d-flex flex-column pt-6 pb-10">
+			  <h1 class="fs-60 text-white"> {{ .Params.front.title | markdownify }} </h1>
+			  <p class="fs-30 text-white">{{ .Params.front.description }}</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- table of contents -->
+<div class="container-fluid overlay-top justify-content-center d-flex">
+	<div class="col-lg-6 col-md-10 col-sm-12">
+	  <ul class="nav nav-toc-page flex-column boxed">
+		{{ range $key, $button := .Params.front.button }}
+		  <li class="mx-1 nav-item bg-white my-1">
+			  <a data-scroll class="nav-link section-nav-link" href="{{$button.href}}">
+				  <span class="text-dark {{$button.icon}} pr-1 fs-24"></span>
+				  <span class="text-dark fs-20">{{ $button.title }}</span>
+			  </a>
+		  </li>
+		  {{ end }}
+	  </ul>
+	  </div>
+	</div>
+
+<!-- Outreach -->
+
+<div class="container-fluid d-flex justify-content-center px-0">
+<div class="col-lg-9 col-md-11 col-sm-12 py-10">
+	{{ if .Params.triple }}
+	  <header id="{{ .Params.triple.id }}" class="d-flex align-items-center">
+		<span class="btn-red btn-ico btn-lg btn-rounded"><i class="fas fa-{{.Params.triple.icon}}"></i></span>
+		<h1 class="mx-4 text-secondary">{{ .Params.triple.title  }}</h1>
+		<hr class="bg-dark w-40"/>
+	  </header>
+	  <article class="d-flex py-6 justify-content-between flex-wrap">
+		<div class="col-md-12 py-3">
+		  <div>
+			<p class="p-medium">{{ .Params.triple.text | markdownify }}</p>
+		  </div>
+		</div>
+	  {{ range $box := .Params.triple.box}}
+	  <div class="col-md-6 py-3">
+		<div class="card p-4">
+		  <div class="d-flex">
+		  <h1><a href="{{ $box.href }}">{{ $box.title | markdownify }}</a></h1>
+		  </div>
+		  <hr class="bg-primary">
+		  <img src="{{ .src }}" class="expanded__image" />
+		  <p class="fs-20">{{ $box.text  | markdownify }}</p>
+		</div>
+	  </div>
+	  {{ end }}
+  </article>
+  {{end}}
+</div>
+</div>
+
+<!-- Sections -->
+
+{{ range .Params.section}}
+<div class="container-fluid d-flex justify-content-center px-0">
+	<div class="col-lg-9 col-md-11 col-sm-12 py-10">
+		  <header id="{{ .id }}" class="d-flex align-items-center">
+			<span class="btn-red btn-ico btn-lg btn-rounded"><i class="fas fa-{{ .icon}}"></i></span>
+			<h1 class="mx-4 text-secondary">{{ .title  }}</h1>
+			<hr class="bg-dark w-40"/>
+		  </header>
+		  <article class="d-flex py-6 justify-content-between flex-wrap">
+			<div class="col-md-12 py-3">
+			  <div>
+				<p class="p-medium">{{ .text | markdownify }}</p>
+			  </div>
+			</div>
+	  </article>
+	  <div class="d-flex justify-content-center m-1">
+	  {{ range .button}}
+		<a class="btn btn-primary btn-sm p-1" href="{{ .href}}">{{ .title | markdownify}}</a>&nbsp; &nbsp;
+	  {{end}}
+	</div>
+	</div>
+	</div>
+{{ end }}
+	
+
+{{ end }}
