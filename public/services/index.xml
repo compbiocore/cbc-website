@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Services on Computational Biology Core</title>
+    <link>https://cbc.brown.edu/services/</link>
+    <description>Recent content in Services on Computational Biology Core</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 27 Nov 2018 10:27:20 -0500</lastBuildDate>
+    
+	<atom:link href="https://cbc.brown.edu/services/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

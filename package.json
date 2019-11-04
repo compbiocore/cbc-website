@@ -1,11 +1,15 @@
 {
-  "name": "ccv-website",
+  "name": "cbc-website",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "citation-js": "^0.3.4",
-    "js-yaml": "^3.13.1"
+    "citation-js": "^0.5.0-alpha.4",
+    "dotenv": "^8.2.0",
+    "js-base64": "^2.5.1",
+    "js-yaml": "^3.13.1",
+    "lodash": "^4.17.15",
+    "request": "^2.88.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -15,12 +19,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brown-data-science/ccv-website.git"
+    "url": "git+https://github.com/compbiocore/cbc-website.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/brown-data-science/ccv-website/issues"
+    "url": "https://github.com/compbiocore/cbc-website/issues"
   },
-  "homepage": "https://github.com/brown-data-science/ccv-website#readme"
+  "homepage": "https://github.com/compbiocore/cbc-website#readme"
 }
