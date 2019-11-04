@@ -28,87 +28,94 @@
 		  </div>
 		</div>
 
-<!-- Data Analysis -->
+<!-- Software -->
 
 <div class="container-fluid d-flex justify-content-center px-0">
   <div class="col-lg-9 col-md-11 col-sm-12 py-10">
-		{{ if .Params.data }}
-          <header id="{{ .Params.data.id }}" class="d-flex align-items-center">
-            <span class="btn-red btn-ico btn-lg btn-rounded"><i class="fas fa-{{.Params.data.icon}}"></i></span>
-            <h1 class="mx-4 text-secondary">{{ .Params.data.title  }}</h1>
+		{{ if .Params.software }}
+          <header id="{{ .Params.software.id }}" class="d-flex align-items-center">
+            <span class="btn-red btn-ico btn-lg btn-rounded"><i class="icon-{{.Params.software.icon}}"></i></span>
+            <h1 class="mx-4 text-secondary">{{ .Params.software.title  }}</h1>
             <hr class="bg-dark w-40"/>
 		  </header>
-		  <article class="d-flex py-6 justify-content-between flex-wrap">
-            <div class="col-md-12 py-3">
-              <div>
-                <p class="p-medium">{{ .Params.data.description | markdownify }}</p>
-              </div>
-            </div>
-          {{ range $box := .Params.data.box}}
-          <div class="col-md-6 py-3">
-            <div class="card p-4">
-              <div class="d-flex">
-              <h1>{{ $box.title | markdownify }}</h1>
-              </div>
-              <hr class="bg-primary">
-              <p class="fs-20">{{ $box.text  | markdownify }}</p>
-            </div>
-          </div>
 		  {{ end }}
-      </article>
-	  <div class="d-flex justify-content-center m-1">
-		<a class="btn btn-primary btn-sm p-1" href="{{.Params.data.button.href}}">{{.Params.data.button.text| markdownify}}</a>
-	  </div>
-	  {{end}}
   </div>
 </div>
 
-<!-- Consulting -->
+<!-- Workshops -->
 
 <div class="container-fluid d-flex justify-content-center px-0">
 	<div class="col-lg-9 col-md-11 col-sm-12 py-10">
-		  {{ if .Params.consulting }}
-			<header id="{{ .Params.consulting.id }}" class="d-flex align-items-center">
-				<span class="btn-red btn-ico btn-lg btn-rounded"><i class="icon-{{.Params.consulting.icon}}"></i></span>
-			  <h1 class="mx-4 text-secondary">{{ .Params.consulting.title  }}</h1>
+		  {{ if .Params.workshops }}
+			<header id="{{ .Params.workshops.id }}" class="d-flex align-items-center">
+			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="icon-{{.Params.workshops.icon}}"></i></span>
+			  <h1 class="mx-4 text-secondary">{{ .Params.workshops.title  }}</h1>
 			  <hr class="bg-dark w-40"/>
 			</header>
-			<article class="d-flex py-6 justify-content-between flex-wrap">
-			  <div class="col-md-12 py-3">
-				<div>
-				  <p class="p-medium">{{ .Params.consulting.text | markdownify }}</p>
-				</div>
-				<br>
-				<div>
-				  <p class="p-medium">{{ .Params.consulting.text2 | markdownify}}</p>
-				</div>
-			  </div>
-		</article>
-		{{end}}
-		<article class="justify-content-center d-flex">
-				<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeEYb83-J6tuevzmNPxMFW6Jy_p3fn4PLigEzBIGRTbRUH-pw/viewform" width="640" height="1006" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-		</article>
+			{{ end }}
 	</div>
   </div>
   
-<!-- DevOps -->
+<!-- Tutorials -->
+
 <div class="container-fluid d-flex justify-content-center px-0">
 	<div class="col-lg-9 col-md-11 col-sm-12 py-10">
-		  {{ if .Params.devops }}
-			<header id="{{ .Params.devops.id }}" class="d-flex align-items-center">
-			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="fas fa-{{.Params.devops.icon}}"></i></span>
-			  <h1 class="mx-4 text-secondary">{{ .Params.devops.title  }}</h1>
+		  {{ if .Params.tutorials }}
+			<header id="{{ .Params.tutorials.id }}" class="d-flex align-items-center">
+			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="icon-{{.Params.tutorials.icon}}"></i></span>
+			  <h1 class="mx-4 text-secondary">{{ .Params.tutorials.title  }}</h1>
 			  <hr class="bg-dark w-40"/>
 			</header>
-			<article class="d-flex py-6 justify-content-between flex-wrap">
-			  <div class="col-md-12 py-3">
-				<div>
-				  <p class="p-medium">{{ .Params.devops.text | markdownify }}</p>
-				</div>
-			  </div>
-		</article>
-		{{end}}
+			{{ end }}
 	</div>
   </div>
   
+<!-- Documentation -->
+
+<div class="container-fluid d-flex justify-content-center px-0">
+	<div class="col-lg-9 col-md-11 col-sm-12 py-10">
+		  {{ if .Params.documentation }}
+			<header id="{{ .Params.documentation.id }}" class="d-flex align-items-center">
+			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="icon-{{.Params.documentation.icon}}"></i></span>
+			  <h1 class="mx-4 text-secondary">{{ .Params.documentation.title  }}</h1>
+			  <hr class="bg-dark w-40"/>
+			</header>
+			{{ end }}
+	</div>
+  </div>
+
+<!-- IPA -->
+
+<div class="container-fluid d-flex justify-content-center px-0">
+	<div class="col-lg-9 col-md-11 col-sm-12 py-10">
+		  {{ if .Params.ipa }}
+			<header id="{{ .Params.ipa.id }}" class="d-flex align-items-center">
+			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="icon-{{.Params.ipa.icon}}"></i></span>
+			  <h1 class="mx-4 text-secondary">{{ .Params.ipa.title  }}</h1>
+			  <hr class="bg-dark w-40"/>
+			</header>
+			<div class="d-flex justify-content-between flex-wrap">
+				<div class="col-md-12 py-3">
+				  <div>
+					<p class="p-medium">{{ .Params.ipa.text | markdownify }}</p>
+				  </div>
+				  <br>
+				  <div>
+					<p class="p-medium">{{ .Params.ipa.text2 | markdownify}}</p>
+				  </div>
+				</div>
+			</div>
+			<div class="justify-content-center d-flex">
+					<iframe src="{{.Params.ipa.iframe}}" width="700" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+			</div>
+			<br>
+			<div class="d-flex justify-content-center m-1">
+			{{range $button := .Params.ipa.button}}
+			  <a class="btn btn-primary btn-sm p-1" href="{{$button.href}}">{{$button.text| markdownify}}</a>&nbsp;&nbsp;
+			{{end}}
+			</div>
+			{{ end }}
+	</div>
+  </div>
+
 {{ end }}
