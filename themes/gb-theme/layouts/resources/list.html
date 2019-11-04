@@ -38,7 +38,13 @@
             <h1 class="mx-4 text-secondary">{{ .Params.software.title  }}</h1>
             <hr class="bg-dark w-40"/>
 		  </header>
-		  {{ end }}
+		  {{ $jsonData := getJSON .Params.software.dataLoc }}
+		  {{range $i, $apps := $jsonData}}
+			  {{if eq $apps.type "software"}}
+			  
+			  {{end}}
+		  {{end}}
+		{{ end }}
   </div>
 </div>
 

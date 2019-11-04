@@ -27,6 +27,7 @@ software:
   title: "Software"
   icon: code
   id: software
+  dataLoc: "data/info-compbiocore.json"
 
 workshops:
   title: "Workshops"
