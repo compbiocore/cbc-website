@@ -51,7 +51,8 @@ menu:
     title: Blog
     url: https://medium.com/brown-compbiocore
     weight: 6
-
+githubLink:
+  cbcGithub: https://github.com/compbiocore/
 # i18n
 languages:
   en:

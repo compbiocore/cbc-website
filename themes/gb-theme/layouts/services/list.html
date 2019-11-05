@@ -1,12 +1,12 @@
 {{ define "content"}}
 <!-- header - blue container -->
 {{ $current_section := .Section }}
-<div id="hero-list" class=" bg-blue text pb-5">
+<div id="hero-list" class=" bg-blue text-white pb-5">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 d-flex flex-column pt-6 pb-10">
-			  <h1 class="fs-60 text-white"> {{ .Params.front.title | markdownify }} </h1>
-			  <p class="fs-30 text-white">{{ .Params.front.description }}</p>
+			  <h1 class="fs-60 text"> {{ .Params.front.title | markdownify }} </h1>
+			  <p class="fs-30 text">{{ .Params.front.description }}</p>
 			</div>
 		</div>
 	</div>

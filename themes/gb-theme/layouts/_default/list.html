@@ -1,12 +1,19 @@
 {{ define "content"}}
 <!-- header - yellow container -->
 {{ $current_section := .Section }}
-<div id="hero-list" class=" bg-blue text pb-5">
+<div id="hero-list" class=" bg-blue text-white pb-5">
 <div class="container">
     <div class="row">
         <div class="col-md-12 d-flex flex-column pt-6 pb-10">
-          <h1 class="fs-60 text-white"> {{ .Params.front.title | markdownify }} </h1>
-          <p class="fs-30 text-white">{{ .Params.front.description }}</p>
+          <h1 class="fs-60"> {{ humanize .Section }} </h1>
+          <p class="fs-30">{{ .Params.hero.lead }}</p>
+          {{ with .Params.hero.cfa }}
+          <p class="nav-item  bg-green shadow w-25 text-center">
+            <a class="nav-link" href="{{$.Site.BaseURL}}{{.href}}">
+              <span class="fs-24 text-beige font-weight-bold">{{ .text }}</span>
+            </a>
+          </p>
+          {{ end }}
         </div>
     </div>
 </div>
@@ -22,7 +29,7 @@
         <li class="mx-1 nav-item bg-white my-1">
             <a data-scroll class="nav-link section-nav-link" href="#{{$key}}">
                 <span class="text-dark icon-{{.Params.icon}} pr-1 fs-24"></span>
-                <span class="text-dark fs-20">{{ humanize $key }}</span>
+                <span class="text-dark fs-20" style="text-transform: capitalize;">{{ humanize $key }}</span>
             </a>
         </li>
         {{ end }}
@@ -31,7 +38,7 @@
     </ul>
     </div>
   </div>
-
+  
 <!-- content -->
 <div class="container-fluid d-flex justify-content-center px-0">
   <div class="col-lg-9 col-md-11 col-sm-12 py-10">
@@ -41,15 +48,28 @@
       {{ if eq .Section $current_section }}
         <header id="{{$key}}" class="d-flex align-items-center">
           <span class="btn-blue btn-ico btn-lg btn-rounded"><i class="icon-{{ .Params.icon }} fs-40"></i></span>
-          <h1 class="mx-4 text-secondary">{{ humanize $key }}</h1>
+          <h1 class="mx-4 text-secondary" style="text-transform: capitalize;">{{ humanize $key }}</h1>
           <hr class="bg-dark w-40"/>
         </header>
-        {{ if eq $key "file-storage-and-transfer"}}
-        <div class="d-flex px-2 py-6 justify-content-between flex-wrap">
-          <h3>{{ markdownify .Site.Data.file_storage.lead }}</h3>
-          <a class="btn btn-secondary mt-2 fs-26" href="{{.Site.BaseURL}}/{{.Site.Data.file_storage.path}}"><span class="fas fa-table"></span> See comparison table </a>
+        {{ if eq $key "outreach"}}
+        <div class="d-flex px-2 py-6 justify-content-between flex-wrap col-md-12 py-3">
+          <div>
+          <p class="p-medium">{{ markdownify .Site.Data.outreach.lead }}</p>
+          </div>
         </div>
         {{ end }}
+        {{if eq $key "computational-biology-core-tools"}}
+        <div class="d-flex px-2 py-6 justify-content-between flex-wrap col-md-12 py-3">
+          <div>
+          <p class="p-medium">{{ markdownify .Site.Data.cbctools.lead }}</p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center m-1">
+        {{ range .Params.button}}
+		      <a class="btn btn-primary btn-sm p-1" href="{{ .href}}">{{ .title | markdownify}}</a>&nbsp; &nbsp;
+        {{end}}
+      </div>
+        {{else}}
         <article class="d-flex py-6 justify-content-between flex-wrap">
           {{ range where $.Site.Pages "Section" $current_section}}
           {{ if eq (.Params.category | urlize) $key }}
@@ -57,25 +77,25 @@
           <div class="col-md-6 py-3">
             <div class="card p-4">
               <div class="d-flex">
-              <h1>{{ .Title | markdownify }}</h1>
+              {{if eq .Title "Analysis Support"}}
+              <a href="{{.Params.href}}" class="mt-1 text-blue"><h1>{{ .Title | markdownify }}</h1></a>
+              {{else}}
+              <a href="{{.Permalink}}" class="mt-1 text-blue"><h1>{{ .Title | markdownify }}</h1></a>
+              {{end}}
               <span class="badge-red badge h-50 ml-1">{{ .Params.version }}</span>
               </div>
               {{ with .Params.extra }}
               <a href="{{.link}}" class="mt-1 text-danger badge border border-danger bg-warning">{{.text}}</a>
               {{ end }}
               <hr class="bg-primary">
+              <img src="{{ .Params.src }}" height="300px" />
               <p class="fs-20">{{ .Params.lead | markdownify }}</p>
-              <span>
-                <a href="{{.Permalink}}" class="mt-1 text-blue"><u>Details</u></a>
-                {{ if .Params.docs_link }}
-                <a href="https://docs.ccv.brown.edu/{{.Params.docs_link}}" class="mt-1 text-orange">&nbsp;&nbsp;<u>Documentation</u>&nbsp;&nbsp;</a>
-                {{ end }}
-              </span>
             </div>
           </div>
           {{ end }}
           {{ end }}
       </article>
+      {{end}}
       {{ end }}
       {{ end }}
       {{ end }}
