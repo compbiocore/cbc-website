@@ -31,7 +31,7 @@
 <!-- Software -->
 
 <div class="container-fluid d-flex justify-content-center px-0">
-  <div class="col-lg-9 col-md-11 col-sm-12 py-10">
+  <div class="col-lg-9 col-md-11 col-sm-12 py-4">
 		{{ if .Params.software }}
           <header id="{{ .Params.software.id }}" class="d-flex align-items-center">
             <span class="btn-red btn-ico btn-lg btn-rounded"><i class="icon-{{.Params.software.icon}}"></i></span>
@@ -39,11 +39,59 @@
             <hr class="bg-dark w-40"/>
 		  </header>
 		  {{ $jsonData := getJSON .Params.software.dataLoc }}
-		  {{range $i, $apps := $jsonData}}
-			  {{if eq $apps.type "software"}}
-			  
-			  {{end}}
-		  {{end}}
+		  {{ if eq (len $jsonData) 0 }}
+            <div class="row justify-content-center text-blue"> Coming soon! </div>
+		  {{ end }}
+		  <article class="d-flex py-2 justify-content-between flex-wrap">
+				{{range $i, $apps := $jsonData}}
+				{{if eq $apps.type "software"}}
+				<div class="col-md-6 py-3">
+					<div class="card p-4">
+						<div class="d-flex">
+						<h1 class="card-title font-weight-bold mb-0 fs-20">
+							<a href={{ print "https://github.com/compbiocore/" $apps.repo }}><h4 class="text-blue">{{ $apps.site_name }}
+								<i class="fab fa-github"></i></h4>
+							</a>
+						</h1></div>
+						<p class="card-text fs-16 text-orange">
+								Maintainers:
+								{{ range $i2, $details := $apps.authors }}
+									{{ $totalLen := sub (len $apps.authors) 1 }}
+									{{ if eq $i2 $totalLen }}
+										<a href="https://github.com/{{$details.github_user}}"> {{ $details.name }}</a>
+									{{ else }}
+										<a href="https://github.com/{{$details.github_user}}"> {{ $details.name }}</a>,
+									{{ end }}
+								{{ end }}
+						</p><br>
+						<p class="card-text fs-18">{{ $apps.site_description }} </p><br>
+
+						<div>
+							<img src="https://img.shields.io/travis/compbiocore/{{ .repo }}.svg?style=flat"/>
+							{{ if .docs_url }}
+							<a href="{{ .docs_url }}">
+								<img src="https://img.shields.io/badge/docs-stable-blue.svg?style=flat"/>
+							</a>
+							{{ end }}
+
+							{{ if .doi }}
+							<a href='https://doi.org/{{ .doi }}'>
+								<img src='https://img.shields.io/badge/DOI-{{ replace (replace (replace .doi "/" "%2F") "_" "__") "-" "--" }}-purple.svg?style=flat'/>
+							</a>
+							{{ end }}
+
+							{{ if .pypi }}
+							<a href='https://pypi.org/project/{{ .site_name }}/'>
+								<img src='https://img.shields.io/pypi/v/{{ .site_name }}.svg?style=flat'/>
+							</a>
+							{{ end }}
+						</div>
+						</div>
+					</div>
+				{{end}}
+			{{end}}
+		  </article>
+		  
 		{{ end }}
   </div>
 </div>
@@ -58,7 +106,61 @@
 			  <h1 class="mx-4 text-secondary">{{ .Params.workshops.title  }}</h1>
 			  <hr class="bg-dark w-40"/>
 			</header>
+			{{ $jsonData := getJSON .Params.software.dataLoc }}
+			{{ if eq (len $jsonData) 0 }}
+			  <div class="row justify-content-center text-blue"> Coming soon! </div>
 			{{ end }}
+			<article class="d-flex py-2 justify-content-between flex-wrap">
+				  {{range $i, $apps := $jsonData}}
+				  {{if eq $apps.type "workshop"}}
+				  <div class="col-md-6 py-3">
+					  <div class="card p-4">
+						  <div class="d-flex">
+						  <h1 class="card-title font-weight-bold mb-0 fs-20">
+							  <a href={{ print "https://github.com/compbiocore/" $apps.repo }}><h4 class="text-blue">{{ $apps.site_name }}
+								  <i class="fab fa-github"></i></h4>
+							  </a>
+						  </h1></div>
+						  <p class="card-text fs-16 text-orange">
+								  Maintainers:
+								  {{ range $i2, $details := $apps.authors }}
+									  {{ $totalLen := sub (len $apps.authors) 1 }}
+									  {{ if eq $i2 $totalLen }}
+										  <a href="https://github.com/{{$details.github_user}}"> {{ $details.name }}</a>
+									  {{ else }}
+										  <a href="https://github.com/{{$details.github_user}}"> {{ $details.name }}</a>,
+									  {{ end }}
+								  {{ end }}
+						  </p><br>
+						  <p class="card-text fs-18">{{ $apps.site_description }} </p><br>
+  
+						  <div>
+							  <img src="https://img.shields.io/travis/compbiocore/{{ .repo }}.svg?style=flat"/>
+							  {{ if .docs_url }}
+							  <a href="{{ .docs_url }}">
+								  <img src="https://img.shields.io/badge/docs-stable-blue.svg?style=flat"/>
+							  </a>
+							  {{ end }}
+  
+							  {{ if .doi }}
+							  <a href='https://doi.org/{{ .doi }}'>
+								  <img src='https://img.shields.io/badge/DOI-{{ replace (replace (replace .doi "/" "%2F") "_" "__") "-" "--" }}-purple.svg?style=flat'/>
+							  </a>
+							  {{ end }}
+  
+							  {{ if .pypi }}
+							  <a href='https://pypi.org/project/{{ .site_name }}/'>
+								  <img src='https://img.shields.io/pypi/v/{{ .site_name }}.svg?style=flat'/>
+							  </a>
+							  {{ end }}
+						  </div>
+						  </div>
+					  </div>
+				  {{end}}
+			  {{end}}
+			</article>
+			
+		  {{ end }}
 	</div>
   </div>
   
@@ -72,7 +174,61 @@
 			  <h1 class="mx-4 text-secondary">{{ .Params.tutorials.title  }}</h1>
 			  <hr class="bg-dark w-40"/>
 			</header>
+			{{ $jsonData := getJSON .Params.software.dataLoc }}
+			{{ if eq (len $jsonData) 0 }}
+			  <div class="row justify-content-center text-blue"> Coming soon! </div>
 			{{ end }}
+			<article class="d-flex py-2 justify-content-between flex-wrap">
+				  {{range $i, $apps := $jsonData}}
+				  {{if eq $apps.type "tutorial"}}
+				  <div class="col-md-6 py-3">
+					  <div class="card p-4">
+						  <div class="d-flex">
+						  <h1 class="card-title font-weight-bold mb-0 fs-20">
+							  <a href={{ print "https://github.com/compbiocore/" $apps.repo }}><h4 class="text-blue">{{ $apps.site_name }}
+								  <i class="fab fa-github"></i></h4>
+							  </a>
+						  </h1></div>
+						  <p class="card-text fs-16 text-orange">
+								  Maintainers:
+								  {{ range $i2, $details := $apps.authors }}
+									  {{ $totalLen := sub (len $apps.authors) 1 }}
+									  {{ if eq $i2 $totalLen }}
+										  <a href="https://github.com/{{$details.github_user}}"> {{ $details.name }}</a>
+									  {{ else }}
+										  <a href="https://github.com/{{$details.github_user}}"> {{ $details.name }}</a>,
+									  {{ end }}
+								  {{ end }}
+						  </p><br>
+						  <p class="card-text fs-18">{{ $apps.site_description }} </p><br>
+  
+						  <div>
+							  <img src="https://img.shields.io/travis/compbiocore/{{ .repo }}.svg?style=flat"/>
+							  {{ if .docs_url }}
+							  <a href="{{ .docs_url }}">
+								  <img src="https://img.shields.io/badge/docs-stable-blue.svg?style=flat"/>
+							  </a>
+							  {{ end }}
+  
+							  {{ if .doi }}
+							  <a href='https://doi.org/{{ .doi }}'>
+								  <img src='https://img.shields.io/badge/DOI-{{ replace (replace (replace .doi "/" "%2F") "_" "__") "-" "--" }}-purple.svg?style=flat'/>
+							  </a>
+							  {{ end }}
+  
+							  {{ if .pypi }}
+							  <a href='https://pypi.org/project/{{ .site_name }}/'>
+								  <img src='https://img.shields.io/pypi/v/{{ .site_name }}.svg?style=flat'/>
+							  </a>
+							  {{ end }}
+						  </div>
+						  </div>
+					  </div>
+				  {{end}}
+			  {{end}}
+			</article>
+			
+		  {{ end }}
 	</div>
   </div>
   
@@ -86,7 +242,61 @@
 			  <h1 class="mx-4 text-secondary">{{ .Params.documentation.title  }}</h1>
 			  <hr class="bg-dark w-40"/>
 			</header>
+			{{ $jsonData := getJSON .Params.software.dataLoc }}
+			{{ if eq (len $jsonData) 0 }}
+			  <div class="row justify-content-center text-blue"> Coming soon! </div>
 			{{ end }}
+			<article class="d-flex py-2 justify-content-between flex-wrap">
+				  {{range $i, $apps := $jsonData}}
+				  {{if eq $apps.type "documentation"}}
+				  <div class="col-md-6 py-3">
+					  <div class="card p-4">
+						  <div class="d-flex">
+						  <h1 class="card-title font-weight-bold mb-0 fs-20">
+							  <a href={{ print "https://github.com/compbiocore/" $apps.repo }}><h4 class="text-blue">{{ $apps.site_name }}
+								  <i class="fab fa-github"></i></h4>
+							  </a>
+						  </h1></div>
+						  <p class="card-text fs-16 text-orange">
+								  Maintainers:
+								  {{ range $i2, $details := $apps.authors }}
+									  {{ $totalLen := sub (len $apps.authors) 1 }}
+									  {{ if eq $i2 $totalLen }}
+										  <a href="https://github.com/{{$details.github_user}}"> {{ $details.name }}</a>
+									  {{ else }}
+										  <a href="https://github.com/{{$details.github_user}}"> {{ $details.name }}</a>,
+									  {{ end }}
+								  {{ end }}
+						  </p><br>
+						  <p class="card-text fs-18">{{ $apps.site_description }} </p><br>
+  
+						  <div>
+							  <img src="https://img.shields.io/travis/compbiocore/{{ .repo }}.svg?style=flat"/>
+							  {{ if .docs_url }}
+							  <a href="{{ .docs_url }}">
+								  <img src="https://img.shields.io/badge/docs-stable-blue.svg?style=flat"/>
+							  </a>
+							  {{ end }}
+  
+							  {{ if .doi }}
+							  <a href='https://doi.org/{{ .doi }}'>
+								  <img src='https://img.shields.io/badge/DOI-{{ replace (replace (replace .doi "/" "%2F") "_" "__") "-" "--" }}-purple.svg?style=flat'/>
+							  </a>
+							  {{ end }}
+  
+							  {{ if .pypi }}
+							  <a href='https://pypi.org/project/{{ .site_name }}/'>
+								  <img src='https://img.shields.io/pypi/v/{{ .site_name }}.svg?style=flat'/>
+							  </a>
+							  {{ end }}
+						  </div>
+						  </div>
+					  </div>
+				  {{end}}
+			  {{end}}
+			</article>
+			
+		  {{ end }}
 	</div>
   </div>
 
