@@ -1,7 +1,0 @@
-{{ define "doc-content" }}
-  {{ if ne .Type "documentation" }}
-    {{ partial "documentation/doc_list" . }}
-  {{ else }}
-    {{ partial "documentation/doc_home" . }}
-  {{ end }}
-{{ end }}
