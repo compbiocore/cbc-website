@@ -8,16 +8,16 @@ hero:
       icon: code
     - title: Workshops
       href: "#workshops"
-      icon: code
+      icon: cogs
     - title: Tutorials
       href: "#tutorials"
-      icon: code
+      icon: file-video-o
     - title: Documentation
       href: "#documentation "
       icon: file
     - title: RefChef
       href: "#refchef"
-      icon: code
+      icon: paperclip2
     - title: Ingenuity Pathway Analysis
       href: "#ipa"
       icon: life-buoy2
@@ -31,13 +31,13 @@ software:
 
 workshops:
   title: "Workshops"
-  id: workshops
-  icon: code
+  id: cogs
+  icon: cogs
 
 tutorials:
   title: "Tutorials"
   id: tutorials
-  icon: code
+  icon: file-video-o
 
 documentation:
   title: "Documentation"
@@ -47,7 +47,6 @@ documentation:
 refchef:
   title: "RefChef"
   id: refchef
-  icon: code
   
 ipa:
   title: "Ingenuity Pathway Analysis"
