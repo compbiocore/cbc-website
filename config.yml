@@ -1,4 +1,4 @@
-baseURL: https://cbc.brown.edu/ 
+baseURL: https://cbc.brown.edu/
 languageCode: en-us
 title: Computational Biology Core
 theme: gb-theme
@@ -65,3 +65,16 @@ taxonomies:
   tag: "tags"
   type: "types"
   category: "category"
+
+params:
+  embed:
+  - url: http://www.pnas.org/content/107/16/7503.long
+  - url: https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1319-7
+  - url: https://almob.biomedcentral.com/articles/10.1186/s13015-017-0116-x
+  - url: https://www.biorxiv.org/content/early/2017/10/04/173203
+  - url: https://www.nature.com/articles/s41586-018-0279-8
+  - url: https://www.nature.com/articles/s41588-018-0295-5
+  - url: https://www.nature.com/articles/s41592-018-0218-5
+  - url: https://genomebiology.biomedcentral.com/articles/10.1186/s13059-018-1592-0
+  - url: https://academic.oup.com/bioinformatics/article/34/22/3801/5089231?searchresult=1
+  - url: http://science.sciencemag.org/content/362/6418/eaav0725

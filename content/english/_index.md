@@ -8,5 +8,8 @@ hero:
   logo2: "/themes/gb-theme/static/images/cbc-logo.svg"
 
 showcase:
-  title: CCV @ Brown
+  title: CBC @ Brown
+
+genomicsinthenews:
+  title: Genomics in the News
 ---

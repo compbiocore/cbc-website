@@ -52,7 +52,7 @@ for (let i = 0; i < totalOrgs; i++) {
     let filePath = 'data/info-' + organization + '.json';
 
     retrievedData[organization] = [];
-    getPage(`orgs/${organization}/repos?per_page=30`, organization, filePath);
+    getPage(`orgs/${organization}/repos?per_page=100`, organization, filePath);
 }
 
 function getPage(url, organization, filePath) {
@@ -63,12 +63,12 @@ function getPage(url, organization, filePath) {
 
     if (values.headers['link']) {
       // if API paginated items
-                                
+
       let linksDict = {}; // dictionary (key: rel | value: url)
 
       // parse returned header for link to next page
       let headerLinks = values.headers['link'].split(", "); // split previous, next, last links.
-                                
+
       for (let linkI = 0; linkI < headerLinks.length; linkI++) {
         let linkRelSplit = headerLinks[linkI].split(">; rel=\"");
         let relExtracted = linkRelSplit[1].substring(0, linkRelSplit[1].length-1);
@@ -89,10 +89,9 @@ function getPage(url, organization, filePath) {
       // if all data returned on single page
       last = true;
     }
-
     // gets the contents of the repos
     let body = JSON.parse(values.body);
-                                
+
     return Promise.all(body.map((repo) => {
       return githubRequest(`repos/${organization}/${repo.name}/contents`, false)
     }));

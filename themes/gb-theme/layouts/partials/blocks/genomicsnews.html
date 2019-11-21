@@ -9,7 +9,7 @@
           <span class="btn-green btn-ico btn-lg btn-rounded mx-3">
             <i class="text-light fad fa-dna"></i>
           </span>
-          <h1 class="h1-home py-8">{{ .Params.showcase.title | markdownify }}</h1>
+          <h1 class="h1-home py-8">{{ .Params.genomicsinthenews.title | markdownify }}</h1>
         </header>
 
       </div>
@@ -30,16 +30,26 @@
       data-loop="true"
       data-dots="true"
       >
-  {{ range where $.Site.Pages "Section" "projects" }}
-  {{if .Params.title }}
-  <div class="photo carousel-img" style="background-image: url({{.Site.BaseURL}}{{ .Params.image }});">
-      <div class="carousel-caption boxed flex-column d-flex">
-        <h1 class="text-light fs-34">{{.Params.title}}</h1>
-        <p class="fs-22 text-light">{{.Params.text}}</p>
-        <p><a href="{{.Params.href}}" class="eyebrow link text-orange">{{.Params.cfa}}</a></p>
+  {{ range .Site.Data.embed }}
+  {{ if .title }}
+  <div class="photo carousel-img d-flex flex-row carousel-caption boxed align-items-center bg-beige " >
+      <div class="w-100">
+        {{range $i, $b := .images}}
+        {{if eq $i 0 }}
+
+        <img src="{{$b.url}}" width="200" height="200"/>
+        {{ end }}
+        {{ end }}
+
       </div>
+      <a href={{.url}}>
+        <div class="flex-column d-flex">
+          <h1 class="text-dark fs-20">{{.title}}</h1>
+          <p class="fs-18 text-dark">{{truncate 200 .description}}</p>
+        </div>
+      </a>
   </div>
-  {{end}}
+  {{ end }}
   {{ end }}
 </div>
 </section>
