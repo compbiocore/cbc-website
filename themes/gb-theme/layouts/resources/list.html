@@ -19,8 +19,8 @@
 			{{ range $key, $button := .Params.hero.button }}
 			  <li class="mx-1 nav-item bg-white my-1">
 				  <a data-scroll class="nav-link section-nav-link" href="{{$button.href}}">
-					  <span class="text-dark icon-{{$button.icon}} pr-1 fs-24"></span>
-					  <span class="text-dark fs-20">{{ $button.title }}</span>
+					  <span class="fad fs-24 fa-{{$button.icon}}"></span>
+					  <span class="text-dark fs-20 ml-2">{{ $button.title }}</span>
 				  </a>
 			  </li>
 			  {{ end }}
@@ -34,7 +34,9 @@
   <div class="col-lg-9 col-md-11 col-sm-12 py-4">
 		{{ if .Params.software }}
           <header id="{{ .Params.software.id }}" class="d-flex align-items-center">
-            <span class="btn-red btn-ico btn-lg btn-rounded"><i class="icon-{{.Params.software.icon}}"></i></span>
+            <span class="btn-red btn-ico btn-lg btn-rounded justify-content-center">
+							<i class="fad fs-24 fa-{{.Params.software.icon}}"></i>
+						</span>
             <h1 class="mx-4 text-secondary">{{ .Params.software.title  }}</h1>
             <hr class="bg-dark w-40"/>
 		  </header>
@@ -91,7 +93,7 @@
 				{{end}}
 			{{end}}
 		  </article>
-		  
+
 		{{ end }}
   </div>
 </div>
@@ -102,7 +104,7 @@
 	<div class="col-lg-9 col-md-11 col-sm-12 py-10">
 		  {{ if .Params.workshops }}
 			<header id="{{ .Params.workshops.id }}" class="d-flex align-items-center">
-			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="icon-{{.Params.workshops.icon}}"></i></span>
+			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="fad fs-24 fa-{{.Params.workshops.icon}}"></i></span>
 			  <h1 class="mx-4 text-secondary">{{ .Params.workshops.title  }}</h1>
 			  <hr class="bg-dark w-40"/>
 			</header>
@@ -133,7 +135,7 @@
 								  {{ end }}
 						  </p><br>
 						  <p class="card-text fs-18">{{ $apps.site_description }} </p><br>
-  
+
 						  <div>
 							  <img src="https://img.shields.io/travis/compbiocore/{{ .repo }}.svg?style=flat"/>
 							  {{ if .docs_url }}
@@ -141,13 +143,13 @@
 								  <img src="https://img.shields.io/badge/docs-stable-blue.svg?style=flat"/>
 							  </a>
 							  {{ end }}
-  
+
 							  {{ if .doi }}
 							  <a href='https://doi.org/{{ .doi }}'>
 								  <img src='https://img.shields.io/badge/DOI-{{ replace (replace (replace .doi "/" "%2F") "_" "__") "-" "--" }}-purple.svg?style=flat'/>
 							  </a>
 							  {{ end }}
-  
+
 							  {{ if .pypi }}
 							  <a href='https://pypi.org/project/{{ .site_name }}/'>
 								  <img src='https://img.shields.io/pypi/v/{{ .site_name }}.svg?style=flat'/>
@@ -159,18 +161,18 @@
 				  {{end}}
 			  {{end}}
 			</article>
-			
+
 		  {{ end }}
 	</div>
   </div>
-  
+
 <!-- Tutorials -->
 
 <div class="container-fluid d-flex justify-content-center px-0">
 	<div class="col-lg-9 col-md-11 col-sm-12 py-10">
 		  {{ if .Params.tutorials }}
 			<header id="{{ .Params.tutorials.id }}" class="d-flex align-items-center">
-			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="icon-{{.Params.tutorials.icon}}"></i></span>
+			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="fad fs-24 fa-{{.Params.tutorials.icon}}"></i></span>
 			  <h1 class="mx-4 text-secondary">{{ .Params.tutorials.title  }}</h1>
 			  <hr class="bg-dark w-40"/>
 			</header>
@@ -201,7 +203,7 @@
 								  {{ end }}
 						  </p><br>
 						  <p class="card-text fs-18">{{ $apps.site_description }} </p><br>
-  
+
 						  <div>
 							  <img src="https://img.shields.io/travis/compbiocore/{{ .repo }}.svg?style=flat"/>
 							  {{ if .docs_url }}
@@ -209,13 +211,13 @@
 								  <img src="https://img.shields.io/badge/docs-stable-blue.svg?style=flat"/>
 							  </a>
 							  {{ end }}
-  
+
 							  {{ if .doi }}
 							  <a href='https://doi.org/{{ .doi }}'>
 								  <img src='https://img.shields.io/badge/DOI-{{ replace (replace (replace .doi "/" "%2F") "_" "__") "-" "--" }}-purple.svg?style=flat'/>
 							  </a>
 							  {{ end }}
-  
+
 							  {{ if .pypi }}
 							  <a href='https://pypi.org/project/{{ .site_name }}/'>
 								  <img src='https://img.shields.io/pypi/v/{{ .site_name }}.svg?style=flat'/>
@@ -227,18 +229,18 @@
 				  {{end}}
 			  {{end}}
 			</article>
-			
+
 		  {{ end }}
 	</div>
   </div>
-  
+
 <!-- Documentation -->
 
 <div class="container-fluid d-flex justify-content-center px-0">
 	<div class="col-lg-9 col-md-11 col-sm-12 py-10">
 		  {{ if .Params.documentation }}
 			<header id="{{ .Params.documentation.id }}" class="d-flex align-items-center">
-			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="icon-{{.Params.documentation.icon}}"></i></span>
+			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="fad fs-24 fa-{{.Params.documentation.icon}}"></i></span>
 			  <h1 class="mx-4 text-secondary">{{ .Params.documentation.title  }}</h1>
 			  <hr class="bg-dark w-40"/>
 			</header>
@@ -269,7 +271,7 @@
 								  {{ end }}
 						  </p><br>
 						  <p class="card-text fs-18">{{ $apps.site_description }} </p><br>
-  
+
 						  <div>
 							  <img src="https://img.shields.io/travis/compbiocore/{{ .repo }}.svg?style=flat"/>
 							  {{ if .docs_url }}
@@ -277,13 +279,13 @@
 								  <img src="https://img.shields.io/badge/docs-stable-blue.svg?style=flat"/>
 							  </a>
 							  {{ end }}
-  
+
 							  {{ if .doi }}
 							  <a href='https://doi.org/{{ .doi }}'>
 								  <img src='https://img.shields.io/badge/DOI-{{ replace (replace (replace .doi "/" "%2F") "_" "__") "-" "--" }}-purple.svg?style=flat'/>
 							  </a>
 							  {{ end }}
-  
+
 							  {{ if .pypi }}
 							  <a href='https://pypi.org/project/{{ .site_name }}/'>
 								  <img src='https://img.shields.io/pypi/v/{{ .site_name }}.svg?style=flat'/>
@@ -295,10 +297,38 @@
 				  {{end}}
 			  {{end}}
 			</article>
-			
+
 		  {{ end }}
 	</div>
   </div>
+
+	<!-- RefChef -->
+
+	<div class="container-fluid d-flex justify-content-center px-0">
+		<div class="col-lg-9 col-md-11 col-sm-12 py-10">
+			  {{ if .Params.refchef }}
+				<header id="{{ .Params.ipa.id }}" class="d-flex align-items-center">
+				  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="fad fs-24 fa-{{.Params.refchef.icon}}"></i></span>
+				  <h1 class="mx-4 text-secondary">{{ .Params.refchef.title  }}</h1>
+				  <hr class="bg-dark w-40"/>
+				</header>
+				<div class="d-flex justify-content-between flex-wrap">
+					<div class="col-md-12 py-3">
+					  <div>
+						<p class="p-medium">{{ .Params.refchef.text | markdownify }}</p>
+					  </div>
+					  <br>
+					</div>
+				</div>
+				<br>
+				<div class="d-flex justify-content-center m-1">
+				{{range $button := .Params.refchef.button}}
+				  <a class="btn btn-primary btn-sm p-1" href="{{$button.href}}">{{$button.text| markdownify}}</a>&nbsp;&nbsp;
+				{{end}}
+				</div>
+				{{ end }}
+		</div>
+	  </div>
 
 <!-- IPA -->
 
@@ -306,7 +336,7 @@
 	<div class="col-lg-9 col-md-11 col-sm-12 py-10">
 		  {{ if .Params.ipa }}
 			<header id="{{ .Params.ipa.id }}" class="d-flex align-items-center">
-			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="icon-{{.Params.ipa.icon}}"></i></span>
+			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="fad fs-24 fa-{{.Params.ipa.icon}}"></i></span>
 			  <h1 class="mx-4 text-secondary">{{ .Params.ipa.title  }}</h1>
 			  <hr class="bg-dark w-40"/>
 			</header>

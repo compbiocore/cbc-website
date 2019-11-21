@@ -14,9 +14,9 @@ front:
       href: https://groups.google.com/a/brown.edu/forum/#!forum/brown-compbiocore-discuss
     - title: FAQs
       href: "#faq"
-      icon: fas fa-question-circle
+      icon: fad fa-question-circle
     - title: Helpdesk
-      icon: fas fa-hands-helping
+      icon: fad fa-hands-helping
       href: mailto:cbc-help@brown.edu
 faq:
   title: Frequently Asked Questions
@@ -32,4 +32,4 @@ faq:
     - q: Where can I find CBC's past workshop materials?
       a: Go to our **[Projects Index Site](https://compbiocore.github.io)**.
 
---- 
+---

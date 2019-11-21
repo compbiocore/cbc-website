@@ -14,7 +14,7 @@ front:
       icon: database
     - title: Consulting
       href: "#consulting"
-      icon: support
+      icon: life-ring
     - title: DevOps
       href: "#devops"
       icon: cloud
@@ -41,7 +41,7 @@ data:
 consulting:
   title: "Consulting Services"
   id: consulting
-  icon: support
+  icon: life-ring
   text: "The Core provides two distinct complimentary services  to all researchers at Brown.<br><br>
    <strong>Appointment Based</strong>&nbsp;&ndash;&nbsp;A team of experienced computational biologists and biostatisticians are on-hand to help investigators design experiments.<br><br>
    <strong>Weekly Consulting Sessions</strong>&nbsp;&ndash;&nbsp;The Core offers two hours *walk-in Consulting* sessions for all researchers to discuss any immediate issues  in data analysis including trouble-shooting code, help with statistical analysis and discussion of options for bioinformatic analysis. These consulting sessions are currently held at *BMC 405 1.30-3.30 pm on Wednesdays*"

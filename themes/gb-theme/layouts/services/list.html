@@ -19,7 +19,7 @@
 			{{ range $key, $button := .Params.front.button }}
 			  <li class="mx-1 nav-item bg-white my-1">
 				  <a data-scroll class="nav-link section-nav-link" href="{{$button.href}}">
-					  <span class="text-dark icon-{{$button.icon}} pr-1 fs-24"></span>
+					  <span class="text-dark fad fa-{{$button.icon}} pr-1 fs-24"></span>
 					  <span class="text-dark fs-20">{{ $button.title }}</span>
 				  </a>
 			  </li>
@@ -34,7 +34,7 @@
   <div class="col-lg-9 col-md-11 col-sm-12 py-10">
 		{{ if .Params.data }}
           <header id="{{ .Params.data.id }}" class="d-flex align-items-center">
-            <span class="btn-red btn-ico btn-lg btn-rounded"><i class="fas fa-{{.Params.data.icon}}"></i></span>
+            <span class="btn-red btn-ico btn-lg btn-rounded"><i class="fad fa-{{.Params.data.icon}}"></i></span>
             <h1 class="mx-4 text-secondary">{{ .Params.data.title  }}</h1>
             <hr class="bg-dark w-40"/>
 		  </header>
@@ -69,7 +69,7 @@
 	<div class="col-lg-9 col-md-11 col-sm-12 py-10">
 		  {{ if .Params.consulting }}
 			<header id="{{ .Params.consulting.id }}" class="d-flex align-items-center">
-				<span class="btn-red btn-ico btn-lg btn-rounded"><i class="icon-{{.Params.consulting.icon}}"></i></span>
+				<span class="btn-red btn-ico btn-lg btn-rounded"><i class="fad fa-{{.Params.consulting.icon}}"></i></span>
 			  <h1 class="mx-4 text-secondary">{{ .Params.consulting.title  }}</h1>
 			  <hr class="bg-dark w-40"/>
 			</header>
@@ -90,13 +90,13 @@
 		</article>
 	</div>
   </div>
-  
+
 <!-- DevOps -->
 <div class="container-fluid d-flex justify-content-center px-0">
 	<div class="col-lg-9 col-md-11 col-sm-12 py-10">
 		  {{ if .Params.devops }}
 			<header id="{{ .Params.devops.id }}" class="d-flex align-items-center">
-			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="fas fa-{{.Params.devops.icon}}"></i></span>
+			  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="fad fa-{{.Params.devops.icon}}"></i></span>
 			  <h1 class="mx-4 text-secondary">{{ .Params.devops.title  }}</h1>
 			  <hr class="bg-dark w-40"/>
 			</header>
@@ -110,5 +110,5 @@
 		{{end}}
 	</div>
   </div>
-  
+
 {{ end }}
