@@ -2,11 +2,15 @@
 <!-- yellow banner -->
 <section id="hero" class="position-relative">
 
-  <div class="hero-content-container bg-blue text-white" style="background-image: url('{{$.Site.BaseURL}}/images/background-art.svg');">
+  <div class="hero-content-container bg-blue text-white d-flex align-items-center justify-content-center">
     <div class="hero-content d-flex flex-column">
       <h1 class="h1-home">{{ .Params.hero.title }}</h1>
       <p class="text-medium-brown">{{ .Params.hero.lead }}</p>
     </div>
+    <div class="floating-logo">
+      {{ readFile "/themes/gb-theme/static/images/cbc-logo.svg" | safeHTML }}
+    </div>
+
   </div>
 
   <!-- floating button -->
@@ -15,9 +19,7 @@
   </a>
 
   <!-- floating graphic -->
-  <div class="right-1 bottom-6 position-absolute z-10">
 
-  </div>
 
 </section>
 <!-- / hero -->

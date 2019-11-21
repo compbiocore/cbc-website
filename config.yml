@@ -4,7 +4,7 @@ title: Computational Biology Core
 theme: gb-theme
 permalinks:
   news: "/:year/:month/:slug/"
-googleAnalytics: UA-136333978-1
+googleAnalytics: UA-115983496-1
 outputs:
   home:
     - html

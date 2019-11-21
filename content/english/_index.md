@@ -12,4 +12,28 @@ showcase:
 
 genomicsinthenews:
   title: Genomics in the News
+
+quick_links:
+  title: Quick Links
+  cards:
+  - name: RefChef
+    icon: dog-leashed
+    text: List of Genome References on Oscar
+    href: "https://compbiocore.github.io/refchef-view"
+    weight: 1
+  - name: Consulting Services
+    icon: life-ring
+    text: Need help with your project? Let us know!
+    href: services/#consulting
+    weight: 1
+  - name: CBC Software
+    icon: code
+    text: Check out our open source software and other tools.
+    href: resources/#software
+    weight: 1
+  - name: Workshops
+    icon: chalkboard-teacher
+    text: Find the materials for current and previous workshops here.
+    href: resources/#workshops
+    weight: 1
 ---

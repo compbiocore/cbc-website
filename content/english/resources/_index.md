@@ -31,7 +31,7 @@ software:
 
 workshops:
   title: "Workshops"
-  id: chalkboard-teacher
+  id: workshops
   icon: chalkboard-teacher
 
 tutorials:
