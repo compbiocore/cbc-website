@@ -2,7 +2,7 @@ name: Deploy Dev
 
 on:
   push:
-    branches: 
+    branches:
       - develop
 
 jobs:
@@ -21,6 +21,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: get embeds and github repos
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        GITHUB_USER: ${{ secrets.GITHUB_USER }}
+        ORGANIZATION: ${{ secrets.ORGANIZATION }}
+        EMBED_ROCKS_API_KEY: ${{ secrets.EMBED_ROCKS_API_KEY }}
       run: |
         npm install
         npm run data
