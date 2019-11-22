@@ -6,7 +6,7 @@ const request = require('request');
 
 const apiKey = process.env.EMBED_ROCKS_API_KEY;
 
-const doc = yaml.safeLoad(fs.readFileSync('config.yml', 'utf8'));
+const doc = yaml.safeLoad(fs.readFileSync('data/genomics_news.yml', 'utf8'));
 
 const getEmbed = (url) => {
   return new Promise((resolve, reject) => {
@@ -22,7 +22,7 @@ const getEmbed = (url) => {
   });
 };
 
-const embedPromises = doc.params.embed.map((item) => getEmbed(item.url));
+const embedPromises = doc.embed.map((item) => getEmbed(item.url));
 
 Promise.all(embedPromises).then((values) => {
   return JSON.stringify(values, null, 2);

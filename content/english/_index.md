@@ -33,7 +33,7 @@ quick_links:
     weight: 1
   - name: Workshops
     icon: chalkboard-teacher
-    text: Find the materials for current and previous workshops here.
+    text: Find materials for current and previous workshops here.
     href: resources/#workshops
     weight: 1
 ---
