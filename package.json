@@ -16,7 +16,8 @@
     "serve": "node embeds.js && node index.js && hugo serve --disableFastRender --ignoreCache",
     "build:development": "node embeds.js && node index.js && hugo --baseURL https://compbiocore.github.io/cbc-website/",
     "build:production": "node embeds.js && node index.js && hugo --baseURL https://cbc.brown.edu/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "data": "node index.js && node embeds.js"
   },
   "repository": {
     "type": "git",
