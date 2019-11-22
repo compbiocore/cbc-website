@@ -21,8 +21,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: get embeds and github repos
-      run: npm run data
+      run: |
+        npm install
+        npm run data
     - name: Build Hugo
       uses: lowply/build-hugo@v0.58.3
       with:
         args: --baseURL https://compbiocore.github.io/cbc-website/
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BASE_BRANCH: develop # The branch the action should deploy from.
+        BRANCH: gh-pages # The branch the action should deploy to.
+        FOLDER: public # The folder the action should deploy.
