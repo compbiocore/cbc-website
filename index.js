@@ -6,7 +6,7 @@ const Base64 = require('js-base64').Base64;
 const _ = require('lodash');
 const yaml = require('js-yaml');
 
-const token = process.env.GITHUB_TOKEN;
+const token = process.env.ACCESS_TOKEN;
 const user = process.env.GITHUB_USER;
 const organizationList = process.env.ORGANIZATION.split(',');
 
