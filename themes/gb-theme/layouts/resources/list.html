@@ -307,7 +307,7 @@
 	<div class="container-fluid d-flex justify-content-center px-0">
 		<div class="col-lg-9 col-md-11 col-sm-12 py-10">
 			  {{ if .Params.refchef }}
-				<header id="{{ .Params.ipa.id }}" class="d-flex align-items-center">
+				<header id="{{ .Params.refchef.id }}" class="d-flex align-items-center">
 				  <span class="btn-red btn-ico btn-lg btn-rounded"><i class="fad fs-24 fa-{{.Params.refchef.icon}}"></i></span>
 				  <h1 class="mx-4 text-secondary">{{ .Params.refchef.title  }}</h1>
 				  <hr class="bg-dark w-40"/>
@@ -322,8 +322,11 @@
 				</div>
 				<br>
 				<div class="d-flex justify-content-center m-1">
-				{{range $button := .Params.refchef.button}}
-				  <a class="btn btn-primary btn-sm p-1" href="{{$button.href}}">{{$button.text| markdownify}}</a>&nbsp;&nbsp;
+					{{range $button := .Params.refchef.button}}
+				  <a class="btn btn-primary btn-sm p-1 d-flex align-items-end" href="{{$button.href}}">
+						{{ readFile "/themes/gb-theme/static/images/refchef.svg" | safeHTML }}
+						<h1 class="text-sand">{{$button.text| markdownify}}</h1>
+					</a>&nbsp;&nbsp;
 				{{end}}
 				</div>
 				{{ end }}

@@ -51,7 +51,7 @@ refchef:
   text: "The Computational Biology Core keeps genome references in Brown's supercomputer Oscar. Oscar users can incorporate those genome references in their analyses. Click the link below for a list of Genome References available on Oscar. Contact us if you there's a genome reference you need added to that list."
   button:
     - text: RefChef View
-      href: https://compbiocore.github.io/refchef-view
+      href: https://compbiocore.github.io/refchef-ember/
 
 ipa:
   title: "Ingenuity Pathway Analysis"
