@@ -18,8 +18,8 @@ quick_links:
   cards:
   - name: RefChef
     icon: dog-leashed
-    text: List of Genome References on Oscar
-    href: "https://compbiocore.github.io/refchef-view"
+    text: Find here the a list of Genome References on Oscar
+    href: "https://compbiocore.github.io/refchef-ember"
     weight: 1
   - name: Consulting Services
     icon: life-ring
