@@ -3,7 +3,7 @@ name: Deploy Dev
 on:
   push:
     branches:
-      - develop
+      - master
 
 jobs:
   build:
@@ -32,13 +32,11 @@ jobs:
     - name: Build Hugo
       uses: lowply/build-hugo@v0.58.3
       env:
-        BASEURL: https://compbiocore.github.io/cbc-website/
+        BASEURL: https://cbc-brown-edu.firebaseapp.com/
       with:
         args: --baseURL $BASEURL
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@master
+    - name: Deploy to Firebase
+      run: npm run deploy
       env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BASE_BRANCH: develop # The branch the action should deploy from.
-        BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: public # The folder the action should deploy.
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID_PRODUCTION }}
