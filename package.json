@@ -16,7 +16,7 @@
   "scripts": {
     "serve": "node embeds.js && node index.js && hugo serve --disableFastRender --ignoreCache",
     "build": "node embeds.js && node index.js && hugo --baseURL $BASEURL",
-    "deploy:production": "firebase deploy",
+    "deploy": "firebase deploy",
     "test": "echo \"Error: no test specified\" && exit 1",
     "data": "node index.js && node embeds.js"
   },
