@@ -1,0 +1,27 @@
+FROM node:12-stretch
+
+COPY ./ /site
+
+WORKDIR /site
+
+ARG ORGANIZATION
+RUN export ORGANIZATION=$ORGANIZATION
+
+ARG GITHUB_USER
+RUN export GITHUB_USER=$GITHUB_USER
+
+ARG ACCESS_TOKEN
+RUN export ACCESS_TOKEN=$ACCESS_TOKEN
+
+ARG EMBED_ROCKS_API_KEY
+RUN export EMBED_ROCKS_API_KEY=$EMBED_ROCKS_API_KEY
+
+ARG BASEURL
+RUN export BASEURL=$BASEURL
+
+RUN npm install
+RUN npm run build:production
+
+FROM nginx
+
+COPY --from=0 /site/public /usr/share/nginx/html
