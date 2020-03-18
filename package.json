@@ -14,14 +14,14 @@
   },
   "devDependencies": {},
   "scripts": {
-    "prebuild": "node embeds.js && node index.js",
+    "prebuild": "npm run data",
+    "prebuild:production": "npm run data",
     "serve": "node embeds.js && node index.js && hugo serve --disableFastRender --ignoreCache",
-    "build": "node embeds.js && node index.js && hugo --baseURL $BASEURL",
+    "build": "hugo --baseURL $BASEURL",
     "deploy": "firebase deploy",
     "test": "echo \"Error: no test specified\" && exit 1",
     "data": "node index.js && node embeds.js",
-    "build:production": "hugo --baseURL https://$BASEURL.brown.edu",
-
+    "build:production": "hugo --baseURL https://$BASEURL.brown.edu"
   },
   "repository": {
     "type": "git",
