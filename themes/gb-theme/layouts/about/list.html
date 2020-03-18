@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12 d-flex flex-column pt-6 pb-10">
           <h1 class="fs-60"> {{ humanize .Section }} </h1>
-          <p class="fs-30">{{ .Params.mission.lead | markdownify }}</p>
+          <p class="fs-30">{{ .Params.mission.lead | safeHTML }}</p>
         </div>
     </div>
 </div>
@@ -80,7 +80,7 @@
           </div>
           {{ end }}
           </article>
-  
+
         <!-- Opportunities -->
         <header id="opportunities" class="d-flex align-items-center pt-4">
             <span class="btn-red btn-ico btn-lg btn-rounded"><i class="fas fa-user-circle"></i></span>
