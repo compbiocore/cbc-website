@@ -1,10 +1,10 @@
 <!-- footer -->
 <footer class="bg-beige ccv-footer d-print-none">
   <div class="row footer-content">
-      <div class="col-12 col-md-2 footer-logo">
+      <div class="col-md-2 footer-logo">
         {{ readFile "/themes/gb-theme/static/images/cbc-logo.svg" | safeHTML }}
       </div>
-      <div class="col-12 col-md-6 text-dark">
+      <div class="col-md-6 text-dark">
         <h1 class="fs-20 font-weight-bold">Computational Biology Core</h1>
         <p>Center for Computational Biology of Human Disease</p>
         <div class="row">
@@ -24,6 +24,12 @@
             </ul>
           </div>
         </div>
+      </div>
+      <div class="col-md-4">
+        <p><strong>Acknowledgements</strong></p>
+        <p>
+          {{ .Site.Params.acknowledgements }}
+        </p>
       </div>
   </div>
 </footer>

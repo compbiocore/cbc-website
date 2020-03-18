@@ -17,6 +17,11 @@ relativeURLs: true
 
 pygmentsCodefences: true
 
+params:
+  acknowledgements: |
+    Research reported on this website is supported by an Institutional Development
+    Award (IDeA) from the National Institute of General Medical Sciences of the
+    National Institutes of Health under grant number P20GM109035. 
 # Menu
 menu:
   main:
