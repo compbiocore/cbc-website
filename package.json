@@ -12,7 +12,11 @@
     "lodash": "^4.17.15",
     "request": "^2.88.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "hugo": "0.0.3",
+    "hugo-bin": "^0.51.2",
+    "cz-conventional-changelog": "^3.0.2"
+  },
   "scripts": {
     "prebuild": "npm run data",
     "prebuild:production": "npm run data",
@@ -26,6 +30,14 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/compbiocore/cbc-website.git"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "hugo-bin": {
+    "buildTags": "extended"
   },
   "author": "",
   "license": "ISC",
